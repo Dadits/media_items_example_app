@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207113002) do
+ActiveRecord::Schema.define(version: 20150207155628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "media_item_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.integer  "media_item_id"
+    t.string   "url"
+    t.string   "link_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "media_type"
+    t.boolean  "shared",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "media_items", ["name"], name: "index_media_items_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

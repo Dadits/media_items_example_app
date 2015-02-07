@@ -15,15 +15,16 @@ gem 'jbuilder',             '~> 2.2.6'
 gem 'devise',               '~> 3.4.1'
 gem 'paperclip',            '~> 4.2.1'
 
-gem 'spring',        group: :development
+gem 'spring',               group: :development
 
 group :test do
-  gem 'capybara',             '~> 2.4.4'
-  gem 'poltergeist',          '~> 1.6.0'
-  gem 'database_cleaner',     '~> 1.4.0'
-  gem 'rspec-rails',          '~> 3.2.0'
-  gem 'factory_girl_rails',   '~> 4.5.0'
-  gem 'seed_dump',            '~> 3.2.0'
-  gem 'spork-rails',          '~> 4.0.0'
-  gem 'launchy',              '~> 2.4.3'
+  gem 'capybara',           '~> 2.4.4'
+  gem 'poltergeist',        '~> 1.6.0'
+  gem 'database_cleaner',   '~> 1.4.0'
+  gem 'rspec-rails',        '~> 3.2.0'
+  gem 'shoulda-matchers',   require: false
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'seed_dump',          '~> 3.2.0'
+  gem 'spork-rails',        '~> 4.0.0'
+  gem 'launchy',            '~> 2.4.3'
 end

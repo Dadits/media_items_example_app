@@ -6,6 +6,8 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'spork'
+require 'shoulda/matchers'
+require "paperclip/matchers"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -57,9 +59,15 @@ Spork.prefork do
     config.include Capybara::DSL
     config.include UserMacros
     config.include FactoryGirl::Syntax::Methods
+    config.include Paperclip::Shoulda::Matchers
     
     config.before(:suite) do
-      DatabaseCleaner.clean_with(:truncation)
+      begin
+        DatabaseCleaner.start
+        FactoryGirl.lint
+      ensure
+        DatabaseCleaner.clean_with(:truncation)
+      end
     end
 
     config.before(:each, js: true) do
