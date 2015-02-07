@@ -24,4 +24,6 @@ group :test do
   gem 'rspec-rails',          '~> 3.2.0'
   gem 'factory_girl_rails',   '~> 4.5.0'
   gem 'seed_dump',            '~> 3.2.0'
+  gem 'spork-rails',          '~> 4.0.0'
+  gem 'launchy',              '~> 2.4.3'
 end
