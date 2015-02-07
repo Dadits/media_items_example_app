@@ -6,7 +6,7 @@ module UserMacros
   end
 
   def logout
-    visit logout_path
+    visit destroy_user_session_path
   end
 
   private
@@ -17,10 +17,10 @@ module UserMacros
 
     def log_in
       visit root_path
-      click_on('sign_in_link')
-      within('#signin-body') do
-        fill_in 'email', with: @user.email
-        fill_in 'password', with: 'password123'
+      click_link('Sign in')
+      within('#new_user') do
+        fill_in 'Email', with: @user.email
+        fill_in 'Password', with: 'password123'
       end
       click_button 'Log in'
     end
