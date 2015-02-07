@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 describe 'sign in' do
 
   before do
