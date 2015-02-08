@@ -22,12 +22,14 @@ module UserMacros
 
     def log_in
       fill_in_user_data(@user.email, 'sign_in')
-      click_button 'Log in'
+      click_on 'Log in'
+      expect(page).to have_content 'Signed in successfully'
+      visit root_path
     end
 
     def fill_in_user_data(email, action)
       visit root_path
-      click_link(action.humanize)
+      click_button click_link(action.humanize)
       within('#new_user') do
         fill_in 'Email', with: email
         fill_in 'Password', with: 'password123'

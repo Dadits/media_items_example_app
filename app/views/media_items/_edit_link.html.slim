@@ -1,0 +1,3 @@
+= f.simple_fields_for :link do |l|
+  = l.input :url, required: true
+  = l.input :link_type, as: :hidden, input_html: { value: @item.media_type }, required: true

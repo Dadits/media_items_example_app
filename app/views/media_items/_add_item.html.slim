@@ -1,0 +1,7 @@
+= simple_form_for @item, multipart: true do |f|
+  = f.input :name
+  = f.input :media_type, as: :hidden, input_html: { value: @item.media_type }
+  = render partial: "edit_#{ define_item_partial(@item.media_type) }", locals: { f: f }
+  = f.input :shared
+  = f.button :submit
+  = link_to 'Cancel', media_items_path

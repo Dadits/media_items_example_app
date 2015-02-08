@@ -1,0 +1,6 @@
+fieldset
+  - if f.object.file.present?
+    = image_tag f.object.file(:thumb)
+  = f.input :file, as: :file, required: true
+  = f.input :_destroy, as: :hidden
+  = link_to 'remove', '#', class: 'remove_fields'

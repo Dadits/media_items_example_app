@@ -1,0 +1,4 @@
+- if @item.media_type.present?
+  '$('#media_item').html('#{ escape_javascript(render partial: "add_item") }');
+- else
+  '$('#media_item').empty()

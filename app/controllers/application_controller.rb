@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   
   def permitted_params
-    @permitted_params ||= PermittedParams.new(params, current_user)
+    @permitted_params ||= PermittedParams.new(params)
   end
   
 end

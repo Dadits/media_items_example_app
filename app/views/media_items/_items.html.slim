@@ -1,0 +1,7 @@
+- items.each do |item|
+  = render partial: "shared/#{ define_item_partial(item.media_type) }", locals: { item: item }
+  - if %w(media_items).include?(controller_name)
+    = link_to 'Edit item', edit_media_item_path(item)
+    = " | "
+    = link_to 'Remove item', media_item_path(item), method: :delete
+= paginate items

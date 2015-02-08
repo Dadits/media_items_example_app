@@ -1,0 +1,10 @@
+h1 Manage Your Media Items
+= link_to 'Add New Media Item', new_media_item_path
+br
+br
+= render partial: 'shared/search_items', locals: { place: :media_items }
+- if @items.any?
+  = render partial: 'items', locals: { items: @items }
+- else
+  br
+  'You have no items

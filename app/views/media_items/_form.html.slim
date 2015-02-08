@@ -1,0 +1,4 @@
+= select_tag :media_type, options_for_select(MediaItem::MEDIA_TYPES, @item.try(:media_type)), prompt: "Select media type" unless @item.try(:persisted?)
+#media_item
+  - if @item.present?
+    = render partial: "add_item"

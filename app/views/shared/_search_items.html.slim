@@ -1,0 +1,4 @@
+= search_form_for @q, url: send("#{ place.to_s }_path") do |f|
+  = f.search_field :name_cont
+  = f.select :media_type_eq, options_for_select(MediaItem::MEDIA_TYPES, params[:q].try(:[], :media_type_eq)), include_blank: "Select media type"
+  = f.submit

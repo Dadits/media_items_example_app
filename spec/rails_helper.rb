@@ -1,5 +1,6 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
@@ -58,8 +59,10 @@ Spork.prefork do
     
     config.include Capybara::DSL
     config.include UserMacros
+    config.include WaitForAjax
     config.include FactoryGirl::Syntax::Methods
     config.include Paperclip::Shoulda::Matchers
+    config.include Rails.application.routes.url_helpers
     
     config.before(:suite) do
       begin

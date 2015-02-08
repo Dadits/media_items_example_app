@@ -1,1 +1,7 @@
 h1 Shared Media Items
+= render partial: 'shared/search_items', locals: { place: :root }
+br
+- if @items.any?
+  = render partial: 'media_items/items', locals: { items: @items }
+- else 
+  'No items were shared

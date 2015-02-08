@@ -7,7 +7,7 @@ class PermittedParams
   end
   
   def media_item
-    params.require(:media_item).permit(:name, :media_type, :shared, link_attributes: [:url, :link_type], image_attributes: [:file])
+    params.require(:media_item).permit(:name, :media_type, :shared, link_attributes: [:url, :link_type], images_attributes: [:file, :_destroy, :id])
   end
   
 end
